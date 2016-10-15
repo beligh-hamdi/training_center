@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var module = angular.module('myApp.about', []);
+    var module = angular.module('myApp.about');
 
     /** @ngInject */
     function AboutController() {
@@ -11,6 +11,10 @@
 
         $ctrl.$onInit = function() {
 
+        };
+
+        $ctrl.status = {
+            open: false
         };
 
     }

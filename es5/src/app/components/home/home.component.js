@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var module = angular.module('myApp.home', []);
+    var module = angular.module('myApp.home');
 
     /** @ngInject */
     function HomeController() {

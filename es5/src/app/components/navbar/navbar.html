@@ -1,23 +1,26 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" ng-click="$ctrl.isNavCollapsed = !$ctrl.isNavCollapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" ui-sref="home">{{ 'App' | translate }}</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse" uib-collapse="$ctrl.isNavCollapsed">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#/">Home</a></li>
-                <li><a href="#/about">About</a></li>
-                <li><a href="#/courses">Courses</a></li>
+                <li ui-sref-active="active"><a ui-sref="home">{{ 'Home' | translate }}</a></li>
+                <li ui-sref-active="active"><a ui-sref="about">{{ 'About' | translate }}</a></li>
+                <li ui-sref-active="active"><a ui-sref="courses">{{ 'Courses' | translate }}</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-class="{'active': $ctrl.userRole === 'admin'}"><a ng-click="$ctrl.setRole('admin')" class="btn btn-link">{{ 'Admin' | translate }}</a> </li>
+                <li ng-class="{'active': $ctrl.userRole === null}"><a ng-click="$ctrl.setRole(null)" class="btn btn-link">{{ 'Guest' | translate }}</a> </li>
+                <li ng-class="{'active': $ctrl.currentLanguage === 'en'}"><a ng-click="$ctrl.setLang('en')" class="btn btn-link">{{ 'English' | translate }}</a> </li>
+                <li ng-class="{'active': $ctrl.currentLanguage === 'fr'}"><a ng-click="$ctrl.setLang('fr')" class="btn btn-link">{{ 'French' | translate }}</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
-
-
-

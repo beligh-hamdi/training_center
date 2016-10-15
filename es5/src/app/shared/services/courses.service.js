@@ -3,11 +3,9 @@
 
     var module = angular.module('myApp.shared');
 
-    var apiUrl = 'http://localhost:4000';
-
 
     /** @ngInject */
-    function CoursesService($http, $q) {
+    function CoursesService($http, $q, API_URL) {
         return {
             fetchAll: fetchAll,
             fetch: fetch,
@@ -17,7 +15,7 @@
         };
 
         function fetchAll() {
-            return $http.get(apiUrl+'/courses')
+            return $http.get(API_URL+'/courses')
                 .then(
                     function(response){
                         return response.data;
@@ -30,7 +28,7 @@
         }
 
         function fetch(id) {
-            return $http.get(apiUrl+'/courses/'+id)
+            return $http.get(API_URL+'/courses/'+id)
                 .then(
                     function(response){
                         return response.data;
@@ -43,7 +41,7 @@
         }
 
         function create(course){
-            return $http.post(apiUrl+'/courses', course)
+            return $http.post(API_URL+'/courses', course)
                 .then(
                     function(response){
                         return response.data;
@@ -56,7 +54,7 @@
         }
 
         function update(course, id){
-            return $http.put(apiUrl+'/courses/'+id, course)
+            return $http.put(API_URL+'/courses/'+id, course)
                 .then(
                     function(response){
                         return response.data;
@@ -69,7 +67,7 @@
         }
 
         function remove(id){
-            return $http.delete(apiUrl+'/courses/'+id)
+            return $http.delete(API_URL+'/courses/'+id)
                 .then(
                     function(response){
                         return response.data;

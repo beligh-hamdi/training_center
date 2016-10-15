@@ -2,19 +2,20 @@
     'use strict';
 
     angular
-        .module('myApp')
+        .module('myApp.shared')
         .config(config);
 
     /** @ngInject */
-    function config($logProvider, toastr) {
-        // Enable log
-        $logProvider.debugEnabled(true);
+    function config($translateProvider, TRANSLATIONS_PATH) {
 
-        // Set options third-party lib
-        toastr.options.timeOut = 3000;
-        toastr.options.positionClass = 'toast-top-right';
-        toastr.options.preventDuplicates = true;
-        toastr.options.progressBar = true;
+        $translateProvider.useStaticFilesLoader({
+            prefix: TRANSLATIONS_PATH,
+            suffix: '.json'
+        });
+
+        $translateProvider.preferredLanguage('fr');
+        $translateProvider.useSanitizeValueStrategy('sanitize');
+
     }
 
 })();

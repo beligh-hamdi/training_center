@@ -4,12 +4,16 @@
     var module = angular.module('myApp.courses');
 
     /** @ngInject */
-    function CoursesController(CoursesService) {
+    function CoursesController(CoursesService, $rootScope) {
 
         var $ctrl = this;
 
         $ctrl.courses = [];
-        $ctrl.userRole = 'admin';
+        $ctrl.userRole = $rootScope.userRole;
+
+        $rootScope.$on('userRoleChanges', function(event, args) {
+            $ctrl.userRole = args.userRole;
+        });
 
         $ctrl.$onInit = function() {
             fetchAll();

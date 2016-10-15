@@ -1,6 +1,6 @@
 (function() {
     'use strict';
 
-    angular.module('myApp.shared', []);
+    angular.module('myApp.shared', ['pascalprecht.translate']);
 
 })();
