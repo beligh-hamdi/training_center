@@ -1,3 +1,4 @@
+/* global document:false*/
 (function() {
     'use strict';
 

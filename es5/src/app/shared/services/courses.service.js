@@ -1,3 +1,4 @@
+/* global toastr:false */
 (function() {
     'use strict';
 
@@ -21,7 +22,8 @@
                         return response.data;
                     },
                     function(errResponse){
-                        console.error('Error while fetching');
+                       // console.error('Error while fetching');
+                        toastr.error('Error while fetching');
                         return $q.reject(errResponse);
                     }
                 );
@@ -34,7 +36,8 @@
                         return response.data;
                     },
                     function(errResponse){
-                        console.error('Error while fetching');
+                       // console.error('Error while fetching');
+                        toastr.error('Error while fetching');
                         return $q.reject(errResponse);
                     }
                 );
@@ -47,7 +50,8 @@
                         return response.data;
                     },
                     function(errResponse){
-                        console.error('Error while creating');
+                        //console.error('Error while creating');
+                        toastr.error('Error while creating');
                         return $q.reject(errResponse);
                     }
                 );
@@ -60,7 +64,8 @@
                         return response.data;
                     },
                     function(errResponse){
-                        console.error('Error while updating');
+                       // console.error('Error while updating');
+                        toastr.error('Error while updating');
                         return $q.reject(errResponse);
                     }
                 );
@@ -73,7 +78,8 @@
                         return response.data;
                     },
                     function(errResponse){
-                        console.error('Error while deleting');
+                       // console.error('Error while deleting');
+                        toastr.error('Error while deleting');
                         return $q.reject(errResponse);
                     }
                 );

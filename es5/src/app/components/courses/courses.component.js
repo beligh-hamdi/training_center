@@ -25,17 +25,20 @@
 
         function remove(id) {
             CoursesService.remove(id).then(function(data) {
+                toastr.success('Succcess');
                 fetchAll();
             }, function(errorResponse) {
-                console.log(errorResponse);
+               // console.log(errorResponse);
+                toastr.error('Error');
             });
         }
 
         function fetchAll() {
             CoursesService.fetchAll().then(function(data) {
                 $ctrl.courses = data;
+                toastr.success('Succcess');
             }, function(errorResponse) {
-                console.log(errorResponse);
+                toastr.error('Error');
             });
         }
 
