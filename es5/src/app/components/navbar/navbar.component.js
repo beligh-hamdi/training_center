@@ -9,9 +9,7 @@
         var $ctrl = this;
 
         $ctrl.$onInit = function() {
-            console.log($ctrl.urlLinks);
-
-
+           // console.log($ctrl.urlLinks);
         };
 
     }

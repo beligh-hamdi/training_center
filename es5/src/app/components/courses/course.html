@@ -1,0 +1,40 @@
+<h1>Course</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">{{$ctrl.course.title}}</div>
+    <div class="panel-body">
+        <div class="media">
+            <div class="media-left media-top">
+                <img class="media-object img-thumbnail img-responsive" ng-src="{{$ctrl.course.img}}" alt="..." style="max-height: 150px">
+            </div>
+            <div class="media-body">
+                <p>{{$ctrl.course.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="$ctrl.userRole === 'admin'">
+
+    <button ng-click="$ctrl.onNewCourse()" class="btn btn-warning">New</button>
+    <button ng-click="$ctrl.onDetailCourse()" class="btn btn-danger">Details</button>
+
+    <div class="panel panel-default" ng-if="$ctrl.actionMode">
+        <div class="panel-heading">Course</div>
+        <div class="panel-body">
+            <form ng-submit="$ctrl.onSubmitCourse()">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Title" ng-model="$ctrl.course.title">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea  rows="6" class="form-control" id="description" placeholder="Description" ng-model="$ctrl.course.description"></textarea>
+                </div>
+                <button ng-if="$ctrl.actionMode === 'newCourse'" type="submit" class="btn btn-default">Submit</button>
+                <button ng-if="$ctrl.actionMode === 'updateCourse'" ng-click="$ctrl.onUpdateCourse()" class="btn btn-warning">Update</button>
+                <button ng-if="$ctrl.actionMode === 'updateCourse'" ng-click="$ctrl.onDeleteCourse()" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>

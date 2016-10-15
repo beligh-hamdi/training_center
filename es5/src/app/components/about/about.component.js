@@ -10,7 +10,7 @@
         var $ctrl = this;
 
         $ctrl.$onInit = function() {
-            $('.ui.accordion').accordion();
+
         };
 
     }

@@ -7,6 +7,8 @@
             'myApp.navbar',
             'myApp.home',
             'myApp.about',
+            'myApp.courses',
+            'myApp.shared',
 
             'ngAnimate',
             'ngCookies',

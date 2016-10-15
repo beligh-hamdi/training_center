@@ -10,7 +10,6 @@
 
         $ctrl.links = [{id:1},{id:2}];
 
-
     }
 
     module.component('appMain', {
